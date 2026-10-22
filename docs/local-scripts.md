@@ -176,9 +176,35 @@ Add the android layer and re-generate to add Android native smoke tests.
 
 ### run-ios-smoke
 
-No ios modules are configured in this project.
-The generated `run-ios-smoke` scripts print a message and exit cleanly.
-Add the ios layer and re-generate to add iOS native smoke tests.
+Runs the iOS native Appium smoke tests for every app that has an `ios` module:
+
+Generated apps with an `ios` module: `demo-shop`
+
+```bash
+# Linux/macOS
+bash scripts/run-ios-smoke.sh
+
+# Windows PowerShell
+.\scripts\run-ios-smoke.ps1
+```
+
+The scripts pass `-Dappium.enabled=true`; without it the smoke is skipped, so plain
+`mvn verify` stays green without a simulator. Needs macOS with Xcode, a booted
+simulator and Appium with the `xcuitest` driver; `scripts/download-ios-sample` fetches
+the official UIKitCatalog build to rehearse with (see the module README, which also has a
+GitHub-hosted `macos-15` runner job).
+
+To run only the ios module from the Maven reactor without the helper script:
+
+```bash
+mvn -B -pl apps/demo-shop/ios -am verify -Dappium.enabled=true
+```
+
+The generated root `pom.xml` also contains an opt-in `ios-smoke` profile:
+
+```bash
+mvn -B -P ios-smoke verify
+```
 
 ### run-api-smoke
 

@@ -13,8 +13,10 @@ client-demo-public-qa/
 ├── qa-factory.lock.json
 ├── framework-core/                # shared utilities (config, resources)
 ├── framework-web-playwright/      # Playwright (Java) session factory + base page/test
+├── framework-mobile/               # Appium driver factory and base mobile test
 ├── framework-performance/         # baseline + reports + provider placeholders
 ├── apps/demo-shop/web-desktop/    # smoke test against a local HTML fixture (Playwright engine)
+├── apps/demo-shop/ios/            # iOS native Appium smoke (XCUITest)
 ├── apps/demo-shop/api/            # RestAssured API smoke (Quality Impact Pack)
 ```
 

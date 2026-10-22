@@ -36,7 +36,7 @@ on:
         type: choice
         required: true
         default: all
-        options: ["all", "web-desktop", "api"]
+        options: ["all", "web-desktop", "ios", "api"]
       environment:
         description: "Logical environment label. Phase 1.9 does not wire any real environment."
         type: choice
@@ -95,6 +95,7 @@ jobs:
         run: |
           case "${{ inputs.application }}:${{ inputs.layer }}" in
             demo-shop:web-desktop) ;;
+            demo-shop:ios) ;;
             demo-shop:api) ;;
             *)
               echo "::error::Unsupported application/layer combination: ${{ inputs.application }} / ${{ inputs.layer }}"

@@ -68,6 +68,7 @@
       "id": "demo-shop",
       "layers": [
         "web-desktop",
+        "ios",
         "api"
       ],
       "web": {
@@ -154,7 +155,7 @@
       },
       {
         "path": ".github/workflows/qaff-ci.yml",
-        "sha256": "15dfc8d958fea61c683ed4861ef3b367821d83e2793cb292d0bfa095d1adbd8b"
+        "sha256": "4f0f41e808ff94a464cb06b367732ccbe3feee1e65e37b5ba283c70df9fae480"
       },
       {
         "path": ".gitignore",
@@ -175,6 +176,26 @@
       {
         "path": "apps/demo-shop/api/src/test/resources/api-config.properties",
         "sha256": "8c7f8ae53a633d6573383a1f7050181b456f651df80e1f0302d2d2ca43b50225"
+      },
+      {
+        "path": "apps/demo-shop/ios/pom.xml",
+        "sha256": "8782db8d579010d6deafb88e2bd994d3564ead8fd402b49c5da8a1838d249cb2"
+      },
+      {
+        "path": "apps/demo-shop/ios/README.md",
+        "sha256": "726d6ab675256f220479a16dee5fcae21bfbe72e7026b1058d8667429d24725b"
+      },
+      {
+        "path": "apps/demo-shop/ios/src/test/java/com/example/clientdemopublicqa/apps/demoshop/ios/IosSmokeTest.java",
+        "sha256": "92f2ecc5f00a8e725b7eb45578a8c9975126f5c50618e728fb4fee9de6d93c6a"
+      },
+      {
+        "path": "apps/demo-shop/ios/src/test/resources/allure.properties",
+        "sha256": "5ed161edd436276c9a7a42723cd31ba8c28a4cee04d7913a43ed881d4c62b236"
+      },
+      {
+        "path": "apps/demo-shop/ios/src/test/resources/appium-config.properties",
+        "sha256": "6423a732029bd6b5ff67d9aea2a8119b6b2f2537d0339de0223defe0f5d0c7a0"
       },
       {
         "path": "apps/demo-shop/web-desktop/pom.xml",
@@ -266,7 +287,7 @@
       },
       {
         "path": "docs/github-actions.md",
-        "sha256": "2ad976af0648642e83c88c6dc5cbc5a79ba33e9e6bfd32a6b55e1bf485d95079"
+        "sha256": "4636061dcbcb902059de0493a75b1065d3ce77ba8ead17ee5cce34d420d80940"
       },
       {
         "path": "docs/HOW_TO_ADD_API_TEST.md",
@@ -326,7 +347,7 @@
       },
       {
         "path": "docs/local-scripts.md",
-        "sha256": "e8be5dfb113e62284e9f39ff7e65d2e0add1eeb4398640accf15d82872199705"
+        "sha256": "21809123c8ecde92349a0a2699e01813cdeb567355eb0c3023e142bba98c8175"
       },
       {
         "path": "docs/locator-evidence-contract.md",
@@ -399,6 +420,22 @@
       {
         "path": "framework-core/src/main/java/com/example/clientdemopublicqa/core/util/TestDataBuilder.java",
         "sha256": "e7c612c2eafddffcf7d4b03234e53bff50443bf12c98c9aa6d82687fe4876d8c"
+      },
+      {
+        "path": "framework-mobile/pom.xml",
+        "sha256": "83f7b9ea0057e58b2877110fcee51a8b1f1ce10b130ff8cb633fa1d3597dfd25"
+      },
+      {
+        "path": "framework-mobile/README.md",
+        "sha256": "5949c5c596ea65aafa2a9a56e40d362ef53fb62817d712fc2c32b9b865a639e3"
+      },
+      {
+        "path": "framework-mobile/src/main/java/com/example/clientdemopublicqa/mobile/AppiumDriverFactory.java",
+        "sha256": "db55bddde260b27f28a20c2df700659a2f93ff4dfb800868740faf6f9ad3476f"
+      },
+      {
+        "path": "framework-mobile/src/main/java/com/example/clientdemopublicqa/mobile/BaseMobileTest.java",
+        "sha256": "e16d95b5afe2d8216fd17ca1f2b22709c104d3d432c7b98832d4a2ca14f01e5b"
       },
       {
         "path": "framework-performance/baseline/README.md",
@@ -506,11 +543,11 @@
       },
       {
         "path": "pom.xml",
-        "sha256": "0c34e7f8942db21879a6b500e014e5ed47aa049e98b3b64bfd575c272311dd70"
+        "sha256": "a31685f06db557f8578ffe78df1ec38acf93b2608fd3128178984cdcc036f509"
       },
       {
         "path": "README.md",
-        "sha256": "4abae733cac48a76359b4f8cc2b03d760afa746ee9d3fb9a470dfcdb5adbadde"
+        "sha256": "13ab5f0d8c431f07a49777081dcf9789035125e02b091d9e925ba1ce0e254ad0"
       },
       {
         "path": "scripts/allure-report.ps1",
@@ -523,6 +560,14 @@
       {
         "path": "scripts/ApiMockServer.java",
         "sha256": "61d829abbf8b6c1474e8c51a5ae7738b4441561e9b47d1688f7154a1214c2cf4"
+      },
+      {
+        "path": "scripts/download-ios-sample.ps1",
+        "sha256": "7fc2f4d5e131ff98f7ee33790d246cd2302973201761734723caaffc94ac95b3"
+      },
+      {
+        "path": "scripts/download-ios-sample.sh",
+        "sha256": "cd77dfbfabf4ce9a544b2eade43fc96e37e2a6f20fe3e775d3940c6f2944c9ed"
       },
       {
         "path": "scripts/run-all-tests.ps1",
@@ -574,11 +619,11 @@
       },
       {
         "path": "scripts/run-ios-smoke.ps1",
-        "sha256": "fccba013d0936d01508ae38c4894275838050a29d3d302ed75a146a48300dfbd"
+        "sha256": "ddfc86f14383eb020017c404286815c720b578da57e8a492c96e228c93a3d6b3"
       },
       {
         "path": "scripts/run-ios-smoke.sh",
-        "sha256": "352ff688f1717d0bb6fe26d8f345d0a57841f9776c9afc5c81db8e8313d4aeef"
+        "sha256": "7e2cc4023ba755b44c8cf2cdc9d7ceaaa59779c3ddc10ff2a48b843b4c0d1c30"
       },
       {
         "path": "scripts/run-jmeter-import-smoke.ps1",

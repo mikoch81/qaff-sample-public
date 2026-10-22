@@ -14,9 +14,11 @@
   <modules>
     <module>framework-core</module>
     <module>framework-web-playwright</module>
+    <module>framework-mobile</module>
     <module>framework-api</module>
     <module>framework-performance</module>
     <module>apps/demo-shop/web-desktop</module>
+    <module>apps/demo-shop/ios</module>
     <module>apps/demo-shop/api</module>
   </modules>
 
@@ -144,6 +146,19 @@
   </build>
 
   <profiles>
+    <profile>
+      <id>ios-smoke</id>
+      <!--
+        iOS native layer — manual-activation profile.
+        Activate with: mvn -B -P ios-smoke verify
+        The smoke runs only with -Dappium.enabled=true (scripts/run-ios-smoke set it)
+        against a booted simulator / device (macOS + Xcode + Appium xcuitest driver).
+        Default mvn verify is not affected.
+      -->
+      <modules>
+        <module>apps/demo-shop/ios</module>
+      </modules>
+    </profile>
     <profile>
       <id>web-external-smoke</id>
       <!--

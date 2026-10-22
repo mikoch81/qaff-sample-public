@@ -1,3 +1,8 @@
-Write-Host 'No ios modules are configured in this project.'
-Write-Host 'Add the ios layer and re-generate to add iOS native smoke tests.'
-exit 0
+$ErrorActionPreference = 'Stop'
+
+Write-Host '=== Running iOS native smoke ==='
+
+mvn -B -pl apps/demo-shop/ios -am verify "-Dappium.enabled=true"
+
+Write-Host ''
+Write-Host '=== iOS native smoke completed ==='

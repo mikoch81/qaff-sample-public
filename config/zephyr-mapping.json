@@ -1,0 +1,4 @@
+{
+  "_comment": "Optional Zephyr Scale Cloud mapping for tests without Allure @TmsLink metadata. Prefer fullName or historyId over display names.",
+  "mappings": []
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.example.clientdemopublicqa</groupId>
+    <artifactId>client-demo-public-qa-parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <relativePath>../../../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>demo-shop-api</artifactId>
+  <name>demo-shop-api</name>
+  <description>RestAssured API smoke tests for demo-shop. Quality Impact Pack.</description>
+
+  <properties>
+    <!-- Dependency direction: app modules may depend on any framework-* module, never on another app. -->
+    <qaff.allowedInternalDependencies>framework-*</qaff.allowedInternalDependencies>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.example.clientdemopublicqa</groupId>
+      <artifactId>framework-api</artifactId>
+      <version>0.1.0-SNAPSHOT</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

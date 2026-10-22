@@ -1,0 +1,649 @@
+{
+  "generatorVersion": "0.3.0",
+  "blueprintId": "java-maven-selenium-junit5-allure",
+  "blueprintVersion": "0.1.0",
+  "javaVersion": "21",
+  "projectName": "client-demo-public-qa",
+  "packs": {
+    "qualityImpact": true,
+    "aiAgent": false,
+    "mcpToolkit": true
+  },
+  "performance": {
+    "providers": [
+      "gatling"
+    ]
+  },
+  "ci": {
+    "jenkins": false,
+    "githubActions": true,
+    "azurePipelines": false,
+    "gitlabCi": false,
+    "jenkinsStrictQualityGate": false,
+    "githubActionsStrictQualityGate": false,
+    "azurePipelinesStrictQualityGate": false,
+    "gitlabCiStrictQualityGate": false,
+    "jenkinsTrendReport": false,
+    "githubActionsTrendReport": false,
+    "azurePipelinesTrendReport": false,
+    "gitlabCiTrendReport": false,
+    "jenkinsStrictTrendGate": false,
+    "githubActionsStrictTrendGate": false,
+    "azurePipelinesStrictTrendGate": false,
+    "gitlabCiStrictTrendGate": false,
+    "githubActionsPerformanceRun": false,
+    "jenkinsPerformanceRun": false,
+    "azurePipelinesPerformanceRun": false,
+    "gitlabCiPerformanceRun": false,
+    "githubActionsPerLayerAllure": false,
+    "jenkinsPerLayerAllure": false,
+    "azurePipelinesPerLayerAllure": false,
+    "gitlabCiPerLayerAllure": false,
+    "githubActionsAllureReport": true,
+    "jenkinsZephyrSync": false,
+    "githubActionsZephyrSync": true,
+    "githubActionsNotify": true
+  },
+  "integrations": {
+    "notifications": {
+      "slack": {
+        "enabled": true,
+        "channel": "#qa-runs"
+      }
+    },
+    "zephyr": {
+      "enabled": true,
+      "provider": "zephyr-scale-cloud",
+      "mode": "dry-run",
+      "jenkinsSync": false,
+      "githubActionsSync": true,
+      "failOnUnmapped": false,
+      "projectKey": "DEMO",
+      "mappingFile": "config/zephyr-mapping.json"
+    }
+  },
+  "failureAnalysisAi": null,
+  "apps": [
+    {
+      "id": "demo-shop",
+      "layers": [
+        "web-desktop",
+        "api"
+      ],
+      "web": {
+        "target": "external",
+        "baseUrl": "https://www.saucedemo.com/",
+        "engine": "playwright",
+        "smoke": {
+          "headingSelector": ".login_logo",
+          "headingText": "Swag Labs",
+          "itemSelector": "#login-button"
+        }
+      }
+    }
+  ],
+  "generatedBy": "qaff",
+  "deterministic": true,
+  "generatedFiles": {
+    "schema": "qaff/managed-snapshot/v1",
+    "algorithm": "sha256",
+    "files": [
+      {
+        "path": ".ai/agents/performance-analyst.agent.md",
+        "sha256": "def69f04bcb7e92bfe99d9fc733cdd3e594e8e9440f790de709aa8ab92d0250e"
+      },
+      {
+        "path": ".ai/mcp/mcp-config.example.json",
+        "sha256": "e988e383afc86a0b278b765d244df55417a2ab0494fdf5b4b4d81b369aa8d9bd"
+      },
+      {
+        "path": ".ai/mcp/performance-results-mcp.md",
+        "sha256": "78736548d8b48eacbfa7b0f9c47c2484c1b21549fb5d992bb8f6c19a776d4723"
+      },
+      {
+        "path": ".ai/mcp/README.md",
+        "sha256": "e1886349d5b9930ae3dbe6d3dbbdde50f185703731942be80e786c9a81f028ba"
+      },
+      {
+        "path": ".ai/mcp/repository-inspection-mcp.md",
+        "sha256": "ca3c4ff9117a966d7a7b50222390499ac08f29e1fdff7b19fd7e841f854b7027"
+      },
+      {
+        "path": ".ai/mcp/server.manifest.json",
+        "sha256": "39108476e81c187fa10e8fd81196ab62aa0bf83c8896e95b81c766637348d9bd"
+      },
+      {
+        "path": ".ai/mcp/server/server.js",
+        "sha256": "eb05474f5931e084d2f39f6f66a67277bb1ba94f44e22b909cf37e02c67f8495"
+      },
+      {
+        "path": ".ai/mcp/test-results-mcp.md",
+        "sha256": "530b2a193652ef24a26dab2161db8f7a0c61956c19780b97b171ab50b8a30f81"
+      },
+      {
+        "path": ".ai/mcp/tools/attach-report-to-jira.tool.md",
+        "sha256": "0e7bfd36e96af5b7e32845222c3a59a3fd2df3513507f149459acdd21a13d828"
+      },
+      {
+        "path": ".ai/mcp/tools/compare-performance-baseline.tool.md",
+        "sha256": "db4770c066873437b2549a501aca2f607affe404e84b2eca1b2b288ad773185d"
+      },
+      {
+        "path": ".ai/mcp/tools/create-zephyr-execution.tool.md",
+        "sha256": "8b1c3487cfb76229995e3380d2525b9c6ef45cf81826ee1ea560eea99fcf3cb5"
+      },
+      {
+        "path": ".ai/mcp/tools/inspect-repository-structure.tool.md",
+        "sha256": "34a4c2530d575ff405c3d2dae8c65d01d2fe687b5aef7b7ce4ceaa9fc6ba1ada"
+      },
+      {
+        "path": ".ai/mcp/tools/read-test-results.tool.md",
+        "sha256": "8cd73b10b5235def3535b0e411eb6ec01e55460b8ac326a79ea4ce15d3bb01cd"
+      },
+      {
+        "path": ".ai/mcp/tools/suggest-test-implementation.tool.md",
+        "sha256": "0b34a58854b8a69305c000becf0b1e7812771e9ba48a6fe0b3cd4252171d5561"
+      },
+      {
+        "path": ".ai/mcp/tools/sync-testrail-results.tool.md",
+        "sha256": "3ab12f862e95b814415762df18ea5daea83074b3964bee156c43db12b972f05f"
+      },
+      {
+        "path": ".ai/mcp/tools/sync-xray-results.tool.md",
+        "sha256": "7b746facdd14aa1ddcfa8ca1b5953e7ae1fe6deb7db3983efeabcd3b355f08f2"
+      },
+      {
+        "path": ".github/workflows/qaff-ci.yml",
+        "sha256": "15dfc8d958fea61c683ed4861ef3b367821d83e2793cb292d0bfa095d1adbd8b"
+      },
+      {
+        "path": ".gitignore",
+        "sha256": "771060f69ca12b91a6f4d07de4d27aa25c7fe1601bfc7123019f1c2810e73a06"
+      },
+      {
+        "path": "apps/demo-shop/api/pom.xml",
+        "sha256": "51329d65b8168b346b9f9ae25fc082add2704bccab199cdd0bbfd859bd467d1e"
+      },
+      {
+        "path": "apps/demo-shop/api/src/test/java/com/example/clientdemopublicqa/apps/demoshop/api/api/ExampleApiTest.java",
+        "sha256": "6ef2c58f44ae4196795768cb51e0dee618f113ecb4053e9640ce3b6c93dce63d"
+      },
+      {
+        "path": "apps/demo-shop/api/src/test/java/com/example/clientdemopublicqa/apps/demoshop/api/api/HealthApiSmokeTest.java",
+        "sha256": "e08cac56c626e8ae31a8824983dbbdba811454c24b47f4c9f1004b1f4f8ca238"
+      },
+      {
+        "path": "apps/demo-shop/api/src/test/resources/api-config.properties",
+        "sha256": "8c7f8ae53a633d6573383a1f7050181b456f651df80e1f0302d2d2ca43b50225"
+      },
+      {
+        "path": "apps/demo-shop/web-desktop/pom.xml",
+        "sha256": "3358ed707d38962d804521a729541561a0f5d98c1e3ca6e58d22fb79bd519bd0"
+      },
+      {
+        "path": "apps/demo-shop/web-desktop/src/test/java/com/example/clientdemopublicqa/apps/demoshop/webdesktop/ExampleTestData.java",
+        "sha256": "836dd4356620694f41295b48e9c27f6ecea7d85e5aee166fb0b75df49f3c5c75"
+      },
+      {
+        "path": "apps/demo-shop/web-desktop/src/test/java/com/example/clientdemopublicqa/apps/demoshop/webdesktop/ExampleWebTest.java",
+        "sha256": "4ed51c6186e79e1ef4bd8d959428a5903a0909c759de81f766a658aa74eefa18"
+      },
+      {
+        "path": "apps/demo-shop/web-desktop/src/test/java/com/example/clientdemopublicqa/apps/demoshop/webdesktop/pages/DemoHomePage.java",
+        "sha256": "3af7c4ef74601aa9bf788063aff7c9d3b0707dbb7cf15aefeeb17257d52fa3e4"
+      },
+      {
+        "path": "apps/demo-shop/web-desktop/src/test/java/com/example/clientdemopublicqa/apps/demoshop/webdesktop/pages/ProductCardComponent.java",
+        "sha256": "d6e27069ffbc12074d175534dbd6d736849883d584eee7a4f10fca251c894785"
+      },
+      {
+        "path": "apps/demo-shop/web-desktop/src/test/java/com/example/clientdemopublicqa/apps/demoshop/webdesktop/tests/DemoHomeSmokeTest.java",
+        "sha256": "510752804bd6efdf820f793aaf2ee15830886b4962c10c3ecf89eb7700ed5009"
+      },
+      {
+        "path": "apps/demo-shop/web-desktop/src/test/java/com/example/clientdemopublicqa/apps/demoshop/webdesktop/tests/DemoProductCardTest.java",
+        "sha256": "ea99e5ea1369a9ca5508be86e0b5ffc215bdf86c558512abc6972c7781a7d225"
+      },
+      {
+        "path": "apps/demo-shop/web-desktop/src/test/resources/allure.properties",
+        "sha256": "4525f247b12d517e8a1dd1e947de97c9e022bff4ca35211d069f69853766e230"
+      },
+      {
+        "path": "apps/demo-shop/web-desktop/src/test/resources/config.properties",
+        "sha256": "af86936092cffb4fcbcf11b7b8218272ad1d7756bfa6d9791367493514116b42"
+      },
+      {
+        "path": "apps/demo-shop/web-desktop/src/test/resources/fixtures/demo-shop.html",
+        "sha256": "6dbfb93f2dc550390f3a3f7d1ff8b8114e41cd98cd4e1610afeb482483619fb6"
+      },
+      {
+        "path": "config/zephyr-mapping.json",
+        "sha256": "7fdc9769bc831afe63647f9536bb820a09c25c7101974b024c71704988df9fdd"
+      },
+      {
+        "path": "docs/agent-validation-checklist.md",
+        "sha256": "b301f124064f7f6fa926b0e27fe1310544d63452199a316a2dd7ce192213d93a"
+      },
+      {
+        "path": "docs/ai-api-test-authoring.md",
+        "sha256": "bf6e9fa6504d8bdaeb807e9af1bcfe025db76e1f37a13de09bf01a46a2a9849d"
+      },
+      {
+        "path": "docs/ai-authoring-readiness.md",
+        "sha256": "9fd20ed0dcdaab3d51656aaf6c960988433ffa7e70417e85636e1236bce582b7"
+      },
+      {
+        "path": "docs/ai-web-test-authoring.md",
+        "sha256": "6a7edef8d26a5f6ec9846fb0432593f92cb324c34b2e4b59350d1bedda724c2f"
+      },
+      {
+        "path": "docs/allure-step-mapping-contract.md",
+        "sha256": "a9379a449a218d41c8dee54c5e6182fcb7439dfc5b5cfd093c428964e3fa85a6"
+      },
+      {
+        "path": "docs/allure-step-policy.md",
+        "sha256": "1180bb13873b0e044aaa5e7f4d2b33b38949a33c8b03230aea7d7b547283a66e"
+      },
+      {
+        "path": "docs/ci-cd.md",
+        "sha256": "cb39d0de666fdf5eb4e05e3bb00bf736cd6a90706394260f29b37d784356297d"
+      },
+      {
+        "path": "docs/DEVELOPER_GUIDE.md",
+        "sha256": "9df8e770e2f54e784a2f2a2f19dc3e375725498e22db0a02e36a0555bc324911"
+      },
+      {
+        "path": "docs/GENERATED_FILE_OWNERSHIP.md",
+        "sha256": "f1fff94689f4be4531248a7529ea34564dd883bfe83680b4494ecc0f1c42b784"
+      },
+      {
+        "path": "docs/generated-architecture.md",
+        "sha256": "087efa1a67f89ba8c579015f4c0a41e0981755a34bf183c05e7f61bc60cfae33"
+      },
+      {
+        "path": "docs/generated-test-review-contract.md",
+        "sha256": "a02e36826f84e9d97f4700aad84be0ef2b919acd9850c8b266763cf3183fcd40"
+      },
+      {
+        "path": "docs/github-actions.md",
+        "sha256": "2ad976af0648642e83c88c6dc5cbc5a79ba33e9e6bfd32a6b55e1bf485d95079"
+      },
+      {
+        "path": "docs/HOW_TO_ADD_API_TEST.md",
+        "sha256": "d71837c65f4518599d5c7c5da46eecce1123a40f8c7bab518ad2d5108929231a"
+      },
+      {
+        "path": "docs/HOW_TO_ADD_PAGE_OBJECT.md",
+        "sha256": "2c3a41af52f3689a5844c70041df2e808eabf7ef256bb09f535a054300f773d9"
+      },
+      {
+        "path": "docs/HOW_TO_ADD_WEB_TEST.md",
+        "sha256": "d0cb5d4c836287d2e429e24f3bf542b8d985059d0094dcd2cc135b6a98701113"
+      },
+      {
+        "path": "docs/HOW_TO_INTERPRET_VERIFY.md",
+        "sha256": "e502f1d0da83225803e90551befeb84305be591f9b75330ef92b33d980dcaa19"
+      },
+      {
+        "path": "docs/HOW_TO_KEEP_DEPENDENCY_DIRECTION_VALID.md",
+        "sha256": "1f4b7f225da3833cdac4edc9a5eb0fdb6990e8c7766b91e8c79dac1444f83765"
+      },
+      {
+        "path": "docs/HOW_TO_RUN_TESTS_LOCALLY.md",
+        "sha256": "a971b7556c2306c034c516fe53aa6733d7e2f002e8acd6c1e5a9b6c7097bf01d"
+      },
+      {
+        "path": "docs/HOW_TO_TARGET_YOUR_APP.md",
+        "sha256": "8752d4f16f645cdfd4bc4fd470354ee406bc6981f3ff00291e91cdea354da721"
+      },
+      {
+        "path": "docs/HOW_TO_UPDATE_BASELINE.md",
+        "sha256": "77e9b999ae40c7ed041061906fbc44a237f4f5f3914bf9f41a2b5c7aa1cac496"
+      },
+      {
+        "path": "docs/HOW_TO_USE_ALLURE.md",
+        "sha256": "5870030c762094bb0aaeb8f661e1da7a105ace2bf31d4fd4ccb7bf598b53cb43"
+      },
+      {
+        "path": "docs/HOW_TO_USE_GENERATED_SCRIPTS.md",
+        "sha256": "c57f2deb2098198d55176228e7a7471d575e8eb16f81a2e8b8021617eda8f4ae"
+      },
+      {
+        "path": "docs/HOW_TO_USE_JUNIT5.md",
+        "sha256": "9a5d95afc0b2ed245dc479bf5a89f8144152c16df24579d92761fa81fcd1b240"
+      },
+      {
+        "path": "docs/HOW_TO_USE_QUALITY_IMPACT.md",
+        "sha256": "4adf09ccec5168aa9171fd4b16957d3c1eede75d83260466d4fc02af3580fdbf"
+      },
+      {
+        "path": "docs/how-to-run.md",
+        "sha256": "d93ab1843c5072db43e35203845d304ad57c49f3491074c8ab44508ee00d5f8e"
+      },
+      {
+        "path": "docs/local-fixture.md",
+        "sha256": "c219527137424798e2fd370d92434765aa3466b52115c4f6049a19bcd4920af0"
+      },
+      {
+        "path": "docs/local-scripts.md",
+        "sha256": "e8be5dfb113e62284e9f39ff7e65d2e0add1eeb4398640accf15d82872199705"
+      },
+      {
+        "path": "docs/locator-evidence-contract.md",
+        "sha256": "32bb70d41f53c2bd773325f607d5bdb5488d510dcafe58dd98ce42db9c2e3274"
+      },
+      {
+        "path": "docs/locator-policy.md",
+        "sha256": "c30a4914b1f8e1f22b224668972e3c1354b98d884eb55c2b443bc1cefe578cd7"
+      },
+      {
+        "path": "docs/notifications.md",
+        "sha256": "69713f65091f991b244d5db95f65a1fa430e98760c6b90a0808bd560d4820401"
+      },
+      {
+        "path": "docs/performance-strategy.md",
+        "sha256": "100885b23eb88ffbee3b1a85760c53f10d8c1637e49c62d8f14eb71d619a89c2"
+      },
+      {
+        "path": "docs/quality-gates.md",
+        "sha256": "a789371f9715bf1f9d166dccdd611977c73b67f60242d0b11b088243c4495712"
+      },
+      {
+        "path": "docs/scenario-contract.md",
+        "sha256": "68d2ba099f9d3e45c4af6eb1ba973844fa490680c3b3acb4e92a4f27d8669625"
+      },
+      {
+        "path": "docs/test-authoring-request.md",
+        "sha256": "2c26ed1e24527aa2cadd19e0626fc9bc2e98fc7aea21ee71bf50982d584b8e7e"
+      },
+      {
+        "path": "framework-api/pom.xml",
+        "sha256": "456533459fcbe996520b491933f95e39083b43402ed4db3cec1dd2be163412a2"
+      },
+      {
+        "path": "framework-api/README.md",
+        "sha256": "e4da83b3597184b5fea984c2b11950566fcfa05888775c3a427f480bcac0627a"
+      },
+      {
+        "path": "framework-api/src/main/java/com/example/clientdemopublicqa/api/ApiConfig.java",
+        "sha256": "db81acfe4c2b960b10ecf72131c25e5e91994c06cfef9fac313917ddfb1183a5"
+      },
+      {
+        "path": "framework-api/src/main/java/com/example/clientdemopublicqa/api/ApiTestSupport.java",
+        "sha256": "b6431547e4be786d3a61bff084b49abced10c7dc0a7c745311f435ead6bfc44f"
+      },
+      {
+        "path": "framework-core/pom.xml",
+        "sha256": "656cb4d187ca8c4c45335f12faa01af9fb9d64ce30da2ee70e5573c4ded407df"
+      },
+      {
+        "path": "framework-core/src/main/java/com/example/clientdemopublicqa/core/config/ConfigLoader.java",
+        "sha256": "f307b9e059f1f87d7f1b1f7b1243ea34b44f28cd5dca04613d0eb2431470c836"
+      },
+      {
+        "path": "framework-core/src/main/java/com/example/clientdemopublicqa/core/util/ResourcePath.java",
+        "sha256": "9b271e1ba6b1ab214c78ac7df20d1b733ed181ad186e77445c8539ec3c2b3ab7"
+      },
+      {
+        "path": "framework-core/src/main/java/com/example/clientdemopublicqa/core/util/Resources.java",
+        "sha256": "b8427b1221ae445fe3dbf63803d1606fd2db2171eeaac6ad20b0746f3ad2eda2"
+      },
+      {
+        "path": "framework-core/src/main/java/com/example/clientdemopublicqa/core/util/Retry.java",
+        "sha256": "8feee12f9a9fd5d918643989c50e460e920fd0f9ad2bd2cdef44e12bf2f9a0c0"
+      },
+      {
+        "path": "framework-core/src/main/java/com/example/clientdemopublicqa/core/util/SoftAssertionHelper.java",
+        "sha256": "0a9a1d173154d6c0b753b8ce0d3322e6007319d99b6e8569d114ef79510e2f1a"
+      },
+      {
+        "path": "framework-core/src/main/java/com/example/clientdemopublicqa/core/util/TestDataBuilder.java",
+        "sha256": "e7c612c2eafddffcf7d4b03234e53bff50443bf12c98c9aa6d82687fe4876d8c"
+      },
+      {
+        "path": "framework-performance/baseline/README.md",
+        "sha256": "658f5b07b54a4d7f3d173e11e36117f7540aab14fd3727a79e7c0a3e9f5fd8ea"
+      },
+      {
+        "path": "framework-performance/pom.xml",
+        "sha256": "54b09dfef93576946dfebae48cf1cfb9a148adf7a4e8cfaaac8e647d2a1e8080"
+      },
+      {
+        "path": "framework-performance/providers/gatling-java/README.md",
+        "sha256": "a925b070a0f62b9be0fb2a908c62ae179bf3620789a5ed658406a31fa1d86305"
+      },
+      {
+        "path": "framework-performance/providers/jmeter/input/README.md",
+        "sha256": "cc77f3883d0c281e2dd8d1ff4274acb590bd5ef129ff3000b20fa57c8ae8bd81"
+      },
+      {
+        "path": "framework-performance/providers/jmeter/README.md",
+        "sha256": "6639f06536e71920d928e56c28f5ce0bca47c543e01847a245f82deeb0bc6149"
+      },
+      {
+        "path": "framework-performance/providers/jmh/README.md",
+        "sha256": "5370e9403098a4057512b7ccc11fc4e16e0d8669813162426dd637d84df36ad5"
+      },
+      {
+        "path": "framework-performance/providers/k6/input/README.md",
+        "sha256": "6a0588ca00e196088bfc05145f2897765cc807adc14da2a35174978d18f9f670"
+      },
+      {
+        "path": "framework-performance/providers/k6/README.md",
+        "sha256": "62d603c56b3bb4e510d68c33c80aa2dead09f21301858fa6a0d8681402de784d"
+      },
+      {
+        "path": "framework-performance/README.md",
+        "sha256": "270b128d180432ad3f175608e8f31b58ab344a552f850155d9e7c428e141ac6e"
+      },
+      {
+        "path": "framework-performance/reports/history/README.md",
+        "sha256": "37670b14de99231ea0c026c92fc7f1d3819626e49e2c91939f239b20c231e99a"
+      },
+      {
+        "path": "framework-performance/reports/README.md",
+        "sha256": "d299ca8f70be2612fd542411099bf28ab0487a10f7c5351579ec55b9def77312"
+      },
+      {
+        "path": "framework-performance/thresholds.yaml",
+        "sha256": "1ea07c52f1de82eb87dd948a157c84337dc7f5978336fd93181ce35fbc0276af"
+      },
+      {
+        "path": "framework-web-playwright/pom.xml",
+        "sha256": "e38c1f5bd0a6786153d418db7cdccff061b2adc9c6552624d07a54b0f37da1ce"
+      },
+      {
+        "path": "framework-web-playwright/src/main/java/com/example/clientdemopublicqa/webplaywright/config/SmokeExpectations.java",
+        "sha256": "f2a43997dc8432fda6b55f7cc6ddddfc7e118417d9793738dda64154526bb282"
+      },
+      {
+        "path": "framework-web-playwright/src/main/java/com/example/clientdemopublicqa/webplaywright/config/WebConfig.java",
+        "sha256": "9e65c8992cfc7eb6e061c5d67c10ec8b18bce523c691d69851cb8104f6c9fc39"
+      },
+      {
+        "path": "framework-web-playwright/src/main/java/com/example/clientdemopublicqa/webplaywright/driver/PlaywrightFactory.java",
+        "sha256": "7eadec3cc65f2aeb2196a9107c593c854639d743d92ba648345610268be24b69"
+      },
+      {
+        "path": "framework-web-playwright/src/main/java/com/example/clientdemopublicqa/webplaywright/driver/PlaywrightSession.java",
+        "sha256": "d2f0ba39e002142242404512773c0841540d03e1a67dddde49f4bab9e2ad56bf"
+      },
+      {
+        "path": "framework-web-playwright/src/main/java/com/example/clientdemopublicqa/webplaywright/extension/RegressionTest.java",
+        "sha256": "3cbcc4f864f1e287e4ddb769b90e1e8c32e2060b77f2e54022b3de9890127846"
+      },
+      {
+        "path": "framework-web-playwright/src/main/java/com/example/clientdemopublicqa/webplaywright/extension/RetryExtension.java",
+        "sha256": "c456f4fb7f464d15d1d28160e87d0bd580430706f8dd11470c1e929a227a381a"
+      },
+      {
+        "path": "framework-web-playwright/src/main/java/com/example/clientdemopublicqa/webplaywright/extension/RetryingTest.java",
+        "sha256": "908f49da321b69da0cbecaddc276f9cbf05a089bff08ba5001b1a40b1eba1ced"
+      },
+      {
+        "path": "framework-web-playwright/src/main/java/com/example/clientdemopublicqa/webplaywright/extension/ScreenshotOnFailureExtension.java",
+        "sha256": "64265bbb989bdf065c101475b798a1027f9f961c188083d587c38eb34fbb6ef1"
+      },
+      {
+        "path": "framework-web-playwright/src/main/java/com/example/clientdemopublicqa/webplaywright/extension/SmokeTest.java",
+        "sha256": "07816ea6da97571d36f5bf2a74361d053cee1561fef5d6fd1cabb1c4c96af78e"
+      },
+      {
+        "path": "framework-web-playwright/src/main/java/com/example/clientdemopublicqa/webplaywright/page/BasePage.java",
+        "sha256": "48ece3098b70048fe2f641bc0b6164027fb93ab1bf85e768cb82b7f24d5c5f7a"
+      },
+      {
+        "path": "framework-web-playwright/src/main/java/com/example/clientdemopublicqa/webplaywright/page/PageComponent.java",
+        "sha256": "abe2f472f228987de96b979d24fa41c87c899f18c6a976e6f8d4ab0e7f492178"
+      },
+      {
+        "path": "framework-web-playwright/src/main/java/com/example/clientdemopublicqa/webplaywright/test/BaseWebMobileTest.java",
+        "sha256": "4a202c84d83db97f82070ad04b290cef6022bee7b47788cb74554b0000e38097"
+      },
+      {
+        "path": "framework-web-playwright/src/main/java/com/example/clientdemopublicqa/webplaywright/test/BaseWebTest.java",
+        "sha256": "d41c838c072990c781469f8bba42298c4136a119f52e7971b1a4e8547df9ce87"
+      },
+      {
+        "path": "pom.xml",
+        "sha256": "0c34e7f8942db21879a6b500e014e5ed47aa049e98b3b64bfd575c272311dd70"
+      },
+      {
+        "path": "README.md",
+        "sha256": "4abae733cac48a76359b4f8cc2b03d760afa746ee9d3fb9a470dfcdb5adbadde"
+      },
+      {
+        "path": "scripts/allure-report.ps1",
+        "sha256": "cea02207710e69dd37ffa40cfe345e01c51f69820cc7d826bc018cb567d1014d"
+      },
+      {
+        "path": "scripts/allure-report.sh",
+        "sha256": "973c38e3d545451a396c09063788a6d4e3b924fd24512d3b3ba0cb2a80df5ab3"
+      },
+      {
+        "path": "scripts/ApiMockServer.java",
+        "sha256": "61d829abbf8b6c1474e8c51a5ae7738b4441561e9b47d1688f7154a1214c2cf4"
+      },
+      {
+        "path": "scripts/run-all-tests.ps1",
+        "sha256": "8b57cb5976387d72e03fd2c9d36726112eef5c8993cc2dfd0b88130962cc4f58"
+      },
+      {
+        "path": "scripts/run-all-tests.sh",
+        "sha256": "b53ecaf391139dfc511b8714244142a64133fa41f8fb8d2b2fc430139036d86f"
+      },
+      {
+        "path": "scripts/run-android-smoke.ps1",
+        "sha256": "a63917319d1662713503ff01d3f18f7a83516a6d11458bbd26e11114695ebf84"
+      },
+      {
+        "path": "scripts/run-android-smoke.sh",
+        "sha256": "f255bbdc7ea970d9efacbaa2bf63af616aab72549a2d3954871516e6122e2a60"
+      },
+      {
+        "path": "scripts/run-api-mock.ps1",
+        "sha256": "503a0207bc25a8272b14dfbf4b4839fa112ffc3a036c6719f74c9fa0261dd3dc"
+      },
+      {
+        "path": "scripts/run-api-mock.sh",
+        "sha256": "c860c812c10f611edeefcb3727acb6afc89894e6f923c073af6798d2322f0755"
+      },
+      {
+        "path": "scripts/run-api-smoke.ps1",
+        "sha256": "606b6eb5d63d72c1b4832a3909f86290a766c70a50a325ff64e8fee4ef3bd813"
+      },
+      {
+        "path": "scripts/run-api-smoke.sh",
+        "sha256": "4a3a5d8b14606c8f6227bdb9a4ac8acfb0495b4bda70e8a41beaeed5cf93a4cd"
+      },
+      {
+        "path": "scripts/run-gatling-smoke.ps1",
+        "sha256": "74352c28e459e893f9cabc15eb4681de82e8fd9cdadb3816463d2e7d6b0e32ab"
+      },
+      {
+        "path": "scripts/run-gatling-smoke.sh",
+        "sha256": "87a1a324e4a9e14e4fbbfbcb9e84e7a79032a111b77b871af1b35e28930a8ce4"
+      },
+      {
+        "path": "scripts/run-integration-smoke.ps1",
+        "sha256": "bb52ac9f57bfa4d9ddd6fa9ce622cc3fe154a16c5b795b9f6ccd53c72c710c23"
+      },
+      {
+        "path": "scripts/run-integration-smoke.sh",
+        "sha256": "6dba321190e75a2f5cb12749d9e01760655c312a2fab7009531d541368e44858"
+      },
+      {
+        "path": "scripts/run-ios-smoke.ps1",
+        "sha256": "fccba013d0936d01508ae38c4894275838050a29d3d302ed75a146a48300dfbd"
+      },
+      {
+        "path": "scripts/run-ios-smoke.sh",
+        "sha256": "352ff688f1717d0bb6fe26d8f345d0a57841f9776c9afc5c81db8e8313d4aeef"
+      },
+      {
+        "path": "scripts/run-jmeter-import-smoke.ps1",
+        "sha256": "5fbdedc7f526a48d008afed8f6051c0fb6c114099619b071c9af324cea4eb039"
+      },
+      {
+        "path": "scripts/run-jmeter-import-smoke.sh",
+        "sha256": "d9b3aa42eb10b152272c2cf197c47a3255d474e7f4c5d6526461bdca1ed471f8"
+      },
+      {
+        "path": "scripts/run-k6-import-smoke.ps1",
+        "sha256": "310fd28826360f0b2bf80404504c3f822489b6e7e964b28829cfe2bc2d9d7597"
+      },
+      {
+        "path": "scripts/run-k6-import-smoke.sh",
+        "sha256": "4f0993d6bc29e4a7b70832097d1e2bdb4b5e1920132a602aa1618bab541b8e4a"
+      },
+      {
+        "path": "scripts/run-mobile-appium-smoke.ps1",
+        "sha256": "5084063d980c09c52de5096a2e3f5f2baf09fe6cc8b263ecd147674ec0404f43"
+      },
+      {
+        "path": "scripts/run-mobile-appium-smoke.sh",
+        "sha256": "c284906ece95011d03006648a58f27efca86894890c6179a665d86fdfc1fcd4a"
+      },
+      {
+        "path": "scripts/run-performance-smoke.ps1",
+        "sha256": "65f3f31de0ec5325710d1e93fc6fd9670a51f1a0be0a5e6280b73feecc6e109c"
+      },
+      {
+        "path": "scripts/run-performance-smoke.sh",
+        "sha256": "e333a33ac4dc45719d3a87e9e72548790f12f8838a1bf306e39329b5f73fd6c0"
+      },
+      {
+        "path": "scripts/run-web-external-smoke.ps1",
+        "sha256": "d9dec527a911ebf0c90ebd1db3f7349072ccf2ab37b59f31cfb984249734efee"
+      },
+      {
+        "path": "scripts/run-web-external-smoke.sh",
+        "sha256": "b690907f60d6960d87d95485b0bb6c55bb89cd38035ec87e94869525fec1131d"
+      },
+      {
+        "path": "scripts/run-web-mobile-smoke.ps1",
+        "sha256": "562b60ce4b9c062932b2b922410ec8d5ea36b559d942ecb526ff6837761273d6"
+      },
+      {
+        "path": "scripts/run-web-mobile-smoke.sh",
+        "sha256": "b215d2b3cb2a03f980a73d643caff3f1367fcad6390e37e385ba6236bd6d174d"
+      },
+      {
+        "path": "scripts/run-web-smoke.ps1",
+        "sha256": "72b43a96ea87663d1d4255ce26fd64ebfade2528937eac3d8507e7f980c260fc"
+      },
+      {
+        "path": "scripts/run-web-smoke.sh",
+        "sha256": "ce5953a20958a67e9bdd267801d9d0bf587cc9ffc2257d46bc15e083d63067da"
+      },
+      {
+        "path": "scripts/verify-framework.ps1",
+        "sha256": "40cb54406154a90cc30d12b3dda323fe2f76af3553f386bb9318b9f78b735e6a"
+      },
+      {
+        "path": "scripts/verify-framework.sh",
+        "sha256": "cdee4b79e50d43d9dc225f83f28be916dcac65eee16a73c60c4afffea9a398ba"
+      }
+    ]
+  }
+}

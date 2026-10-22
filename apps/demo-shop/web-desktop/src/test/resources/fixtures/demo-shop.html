@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Demo eCommerce</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; color: #222; }
+    h1 { margin-bottom: 1rem; }
+    .product-card {
+      border: 1px solid #ddd; border-radius: 8px; padding: 1rem;
+      max-width: 320px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .product-card h2 { font-size: 1.1rem; margin: 0 0 .5rem 0; }
+    .product-card .price { font-weight: 600; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 data-testid="store-heading">Demo eCommerce Store</h1>
+    <p>Deterministic local fixture used by qaff-generated smoke tests. No network required.</p>
+  </header>
+
+  <main>
+    <article class="product-card" data-testid="product-card" data-product-id="sku-001">
+      <h2 data-testid="product-name">Sample Widget</h2>
+      <p data-testid="product-description">A perfectly ordinary widget for smoke testing.</p>
+      <p class="price" data-testid="product-price">19.99 EUR</p>
+      <button type="button" data-testid="add-to-cart">Add to cart</button>
+    </article>
+  </main>
+</body>
+</html>

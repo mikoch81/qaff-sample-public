@@ -183,7 +183,7 @@
       },
       {
         "path": "apps/demo-shop/ios/README.md",
-        "sha256": "726d6ab675256f220479a16dee5fcae21bfbe72e7026b1058d8667429d24725b"
+        "sha256": "1e16b0bc38d6b19179d51a18f81d0a1110273b04c9f1f54bdc345c880f714ebc"
       },
       {
         "path": "apps/demo-shop/ios/src/test/java/com/example/clientdemopublicqa/apps/demoshop/ios/IosSmokeTest.java",

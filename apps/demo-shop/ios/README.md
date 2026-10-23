@@ -34,8 +34,11 @@ Without `-Dappium.enabled=true` the smoke is skipped, so the project's plain
 ## GitHub-hosted macOS runner
 
 The hosted `macos-15` image ships Xcode, iPhone simulators, Node and Maven, so the smoke
-runs without self-hosted hardware (one job, manual trigger; adapt the device name to the
-image's simulator list):
+runs without self-hosted hardware (one job, manual trigger). The first XCUITest session
+builds WebDriverAgent (about 4 minutes), longer than the Java client's HTTP timeout — the
+warm-up step below opens and closes that first session with `curl`, so the Maven run then
+starts in seconds. Several runtimes ship the same device name, so the job pins one
+simulator by UDID:
 
 ```yaml
 # .github/workflows/ios-smoke.yml
@@ -43,14 +46,29 @@ on: { workflow_dispatch: }
 jobs:
   ios-smoke:
     runs-on: macos-15
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v5
+      - uses: actions/setup-java@v6
+        with: { distribution: temurin, java-version: "21", cache: maven }
       - run: npm i -g appium && appium driver install xcuitest
-      - run: xcrun simctl boot "iPhone 16" && xcrun simctl bootstatus "iPhone 16" -b
+      - id: sim
+        run: |
+          UDID=$(xcrun simctl list devices available -j | jq -r '[.devices[] | .[] | select(.name == "iPhone 16")][0].udid')
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+          xcrun simctl boot "$UDID" && xcrun simctl bootstatus "$UDID" -b
       - run: bash scripts/download-ios-sample.sh
-      - run: (appium --log-level warn > appium.log 2>&1 &) && sleep 5
+      - run: |
+          (appium --log-level info > appium.log 2>&1 &)
+          for i in $(seq 1 30); do curl -sf localhost:4723/status >/dev/null && break; sleep 2; done
+      - name: Warm up WebDriverAgent
+        run: |
+          SID=$(curl -sS -X POST localhost:4723/session -H 'Content-Type: application/json' -d '{"capabilities":{"alwaysMatch":{"platformName":"iOS","appium:automationName":"XCUITest","appium:udid":"${{ steps.sim.outputs.udid }}","appium:app":"${{ github.workspace }}/.qaff/samples/UIKitCatalog-iphonesimulator.zip"}}}' | jq -r '.value.sessionId // empty')
+          test -n "$SID" || { tail -50 appium.log; exit 1; }
+          curl -sS -X DELETE "localhost:4723/session/$SID" >/dev/null
       - run: bash scripts/run-ios-smoke.sh
         env:
+          QAFF_APPIUM_UDID: ${{ steps.sim.outputs.udid }}
           QAFF_APPIUM_APP: ${{ github.workspace }}/.qaff/samples/UIKitCatalog-iphonesimulator.zip
           QAFF_SMOKE_ACCESSIBILITY_ID: Buttons
       - uses: actions/upload-artifact@v5

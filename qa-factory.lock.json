@@ -154,6 +154,10 @@
         "sha256": "7b746facdd14aa1ddcfa8ca1b5953e7ae1fe6deb7db3983efeabcd3b355f08f2"
       },
       {
+        "path": ".gitattributes",
+        "sha256": "52e87240f800e3270f39dcb05c18dc5fef71e5a004ec8ca469ca09935c51201d"
+      },
+      {
         "path": ".github/workflows/qaff-ci.yml",
         "sha256": "4f0f41e808ff94a464cb06b367732ccbe3feee1e65e37b5ba283c70df9fae480"
       },
